@@ -1,0 +1,30 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// タイトル。
+.search-title {
+    @extend .col-12;
+    color: white;
+    background-color: blue;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+// 検索項目のコンテナ。
+.search-item-container {
+    margin: 10px 0;
+}
+
+// 検索項目の項目名。
+.search-item-name {
+    @extend .col-4;
+}
+
+.search-item-value {
+    @extend .col-8;
+}
+
+.search-item-button {
+    @extend .btn;
+    @extend .btn-primary;
+    padding: 10px 20px;
+}

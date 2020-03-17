@@ -1,0 +1,120 @@
+1)
+npm init -y
+
+2)
+npm install --save-dev @babel/core @babel/polyfill @babel/preset-env babel-loader webpack webpack-cli eslint
+
+3)
+create .babelrc
+
+===
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry"
+        }
+      ]
+    ]
+  }
+  
+===
+
+4)
+create webpack.config.js
+===
+module.exports = {
+    mode: 'development',
+    devtool: 'source-map',
+    entry: ['./index.js'],
+    output: {
+      path: `${__dirname}/dist`,
+      filename: 'main.js'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader'
+          }
+        }
+      ]
+    }
+  };
+
+===
+
+5)
+npx eslint --init
+
+6)
+edit .eslintrc.json
+===
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2015,
+        "sourceType": "module"
+    },
+    // 以下のrulesを追加する。
+    "rules": {
+        "semi": [
+            // 0(ルール無効)、1(ルール有効_警告) 、2(ルール有効_エラー)
+            1,
+            "always"
+        ],
+        "indent": [
+            1,
+            // インデントのスペース数。
+            4
+        ],
+        // 関数名と引数の間のスペースを許容しない。
+        "space-before-function-paren": [
+            1,
+            "never"
+        ]
+    }
+}
+===
+
+7)
+npm install --save-dev bootstrap gulp gulp-sass gulp-autoprefixer gulp-clean-css
+
+8)
+create gulpfile.js
+===
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
+
+gulp.task('sass', function(done) {
+    gulp
+        .src('sass/custom.scss')
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest('css'));
+    done();
+});
+===
+
+9)
+npm install --save-dev webpack-dev-server
+
+10)
+webpack-dev-server run for mac
+npx webpack-dev-server --host 0.0.0.0
