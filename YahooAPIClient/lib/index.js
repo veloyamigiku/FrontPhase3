@@ -22,6 +22,7 @@ function addSearchUser(tableBodyId, userSearchObj) {
         const userTd = document.createElement('td');
         const userA = document.createElement('a');
         userA.setAttribute('href', htmlUrl);
+        userA.setAttribute('target', '_blank');
         userA.textContent = login;
         userTd.appendChild(userA);
         tr.appendChild(userTd);
@@ -63,6 +64,4 @@ window.addEventListener('load', () => {
         userSearch(query);
     });
 });
-
-console.log("hogehoge");
 
