@@ -40,7 +40,11 @@ function clearSearchTableBody(tableBodyId) {
 }
 
 function userSearch(query) {
-    if (query === "") {
+    const searchMessage = document.getElementById('search-message');
+    searchMessage.setAttribute('display', 'none');
+    if (query === '') {
+        searchMessage.textContent = 'ユーザ名を入力してください。';
+        searchMessage.setAttribute('display', 'inherit');
         return;
     }
     GithubClient.userSearch(
@@ -64,4 +68,3 @@ window.addEventListener('load', () => {
         userSearch(query);
     });
 });
-

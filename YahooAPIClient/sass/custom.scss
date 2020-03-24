@@ -19,12 +19,22 @@
     @extend .col-4;
 }
 
+// 検索項目の項目値。
 .search-item-value {
     @extend .col-8;
 }
 
+// 検索項目（検索ボタン）
 .search-item-button {
     @extend .btn;
     @extend .btn-primary;
     padding: 10px 20px;
+}
+
+// 検索項目（検索メッセージ）
+#search-message {
+    color: red;
+    font-weight: bold;
+    padding: 10px 0;
+    display: none;
 }
