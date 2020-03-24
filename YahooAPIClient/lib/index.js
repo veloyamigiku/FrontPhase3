@@ -41,10 +41,10 @@ function clearSearchTableBody(tableBodyId) {
 
 function userSearch(query) {
     const searchMessage = document.getElementById('search-message');
-    searchMessage.setAttribute('display', 'none');
+    searchMessage.style.display = 'none';
     if (query === '') {
         searchMessage.textContent = 'ユーザ名を入力してください。';
-        searchMessage.setAttribute('display', 'inherit');
+        searchMessage.style.display = 'block';
         return;
     }
     GithubClient.userSearch(
