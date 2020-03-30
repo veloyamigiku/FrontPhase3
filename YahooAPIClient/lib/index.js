@@ -42,7 +42,7 @@ function clearSearchTableBody(tableBodyId) {
 function updatePaging(page, perPage, userSearchObj) {
     const totalCount = parseInt(userSearchObj.total_count);
 
-    // リンクの有効・無効を更新する。
+    // ページングリンクの有効・無効を更新する。
     const searchPagingPrevLink = document.getElementById('search-item-paging-prev-link');
     const searchPagingNextLink = document.getElementById('search-item-paging-next-link');
 
@@ -58,7 +58,7 @@ function updatePaging(page, perPage, userSearchObj) {
         searchPagingNextLink.classList.remove('search-item-paging-link_disable');
     }
 
-    // リンクを独自属性を更新する。
+    // ページングリンクの独自属性を更新する。
     searchPagingPrevLink.setAttribute('data-page', page - 1);
     searchPagingPrevLink.setAttribute('data-per-page', perPage);
     searchPagingNextLink.setAttribute('data-page', page + 1);
