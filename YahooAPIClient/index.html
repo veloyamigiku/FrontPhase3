@@ -13,18 +13,18 @@
             <div class="search-item-container">
                 <div class="row">
                     <div class="search-item-name">
-                        <label for="query">ユーザ名</label>
+                        <label for="search-item-q">ユーザ名</label>
                     </div>
                     <div class="search-item-value">
-                        <input type="text" id="query" class="form-control">
+                        <input type="text" id="search-item-q" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="search-item-name">
-                        <label for="display-count">表示件数</label>
+                        <label for="search-item-display-count">表示件数</label>
                     </div>
                     <div class="search-item-value">
-                        <select id="display-count" class="form-control">
+                        <select id="search-item-display-count" class="form-control">
                             <option selected>5</option>
                             <option>10</option>
                         </select>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="search-item-value">
-                        <button type="button" class="search-item-button" id="search-button">検索</button>
+                        <button type="button" class="search-item-button" id="search-item-search-button">検索</button>
                     </div>
                 </div>
                 <div class="row">
@@ -43,6 +43,15 @@
             </div>
             <hr>
             <div class="row">
+                <div class="col-10"></div>
+                <div class="col-1">
+                    <a id="search-item-paging-prev-link" class="search-item-paging-link_disable" href="#">前</a>
+                </div>
+                <div class="col-1">
+                    <a id="search-item-paging-next-link" class="search-item-paging-link_disable" href="#">次</a>
+                </div>
+            </div>
+            <div class="row">
                 <table class="table table-hover table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -51,18 +60,6 @@
                         </tr>
                     </thead>
                     <tbody id="search-user-table-body">
-                        <tr>
-                            <th>1</th>
-                            <td>ホゲホゲ</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>ホゲホゲ</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>ホゲホゲ</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

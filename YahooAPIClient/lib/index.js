@@ -39,7 +39,33 @@ function clearSearchTableBody(tableBodyId) {
     tableBodyParent.appendChild(newTableBody);
 }
 
-function userSearch(query) {
+function updatePaging(page, perPage, userSearchObj) {
+    const totalCount = parseInt(userSearchObj.total_count);
+
+    // リンクの有効・無効を更新する。
+    const searchPagingPrevLink = document.getElementById('search-item-paging-prev-link');
+    const searchPagingNextLink = document.getElementById('search-item-paging-next-link');
+
+    if (page === 1) {
+        searchPagingPrevLink.classList.add('search-item-paging-link_disable');
+    } else {
+        searchPagingPrevLink.classList.remove('search-item-paging-link_disable');
+    }
+
+    if (totalCount < page * perPage) {
+        searchPagingNextLink.classList.add('search-item-paging-link_disable');
+    } else {
+        searchPagingNextLink.classList.remove('search-item-paging-link_disable');
+    }
+
+    // リンクを独自属性を更新する。
+    searchPagingPrevLink.setAttribute('data-page', page - 1);
+    searchPagingPrevLink.setAttribute('data-per-page', perPage);
+    searchPagingNextLink.setAttribute('data-page', page + 1);
+    searchPagingNextLink.setAttribute('data-per-page', perPage);
+}
+
+function userSearch(query, page, perPage) {
     const searchMessage = document.getElementById('search-message');
     searchMessage.style.display = 'none';
     if (query === '') {
@@ -49,8 +75,14 @@ function userSearch(query) {
     }
     GithubClient.userSearch(
         query,
+        page,
+        perPage,
         res => {
             const userSearchObj = JSON.parse(res);
+            updatePaging(
+                page,
+                perPage,
+                userSearchObj);
             updateSearchTable(
                 'search-user-table-body',
                 userSearchObj);
@@ -63,8 +95,24 @@ function userSearch(query) {
 }
 
 window.addEventListener('load', () => {
-    document.getElementById('search-button').addEventListener('click', () => {
-        const query = document.getElementById('query').value;
-        userSearch(query);
+    document.getElementById('search-item-search-button').addEventListener('click', () => {
+        const q = document.getElementById('search-item-q').value;
+        const page = 1;
+        const perPage = parseInt(document.getElementById('search-item-display-count').value);
+        userSearch(q, page, perPage);
+    });
+
+    document.getElementById('search-item-paging-prev-link').addEventListener('click', () => {
+        const q = document.getElementById('search-item-q').value;
+        const page = parseInt(document.getElementById('search-item-paging-prev-link').getAttribute('data-page'));
+        const perPage = parseInt(document.getElementById('search-item-paging-prev-link').getAttribute('data-per-page'));
+        userSearch(q, page, perPage);
+    });
+
+    document.getElementById('search-item-paging-next-link').addEventListener('click', () => {
+        const q = document.getElementById('search-item-q').value;
+        const page = parseInt(document.getElementById('search-item-paging-next-link').getAttribute('data-page'));
+        const perPage = parseInt(document.getElementById('search-item-paging-next-link').getAttribute('data-per-page'));
+        userSearch(q, page, perPage);
     });
 });

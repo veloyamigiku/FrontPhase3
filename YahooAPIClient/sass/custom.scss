@@ -38,3 +38,8 @@
     padding: 10px 0;
     display: none;
 }
+
+// 検索項目（ページングのリンク_無効）
+.search-item-paging-link_disable {
+    visibility: hidden;
+}
