@@ -7,3 +7,19 @@
 .todo-list-item {
     display: inline;
 }
+
+/* TODO入力領域 */
+.todo-container-input {
+    width: 800px;
+    background-color: #eeeeee;
+    border: solid 1px gray;
+    border-radius: 5px;
+    box-shadow: 0 5px gray;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+/* TODOの入力項目 */
+.todo-input-content {
+    width: 500px;
+}

@@ -2,16 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>TODO</title>
+        <title>TODO一覧</title>
         <link href="css/custom.css" rel="stylesheet">
     </head>
     <body>
-        <h1>TODO一覧</h1>
-        <div>
-            <div class="todo-input-item"><input type="text"></div>
+        <header></header>
+        <div class="todo-container-input">
+            <div class="todo-input-item"><input type="text" class="todo-input-content" placeholder="TODOを入力して、追加ボタンをクリックしてください。"></div>
             <div class="todo-input-item"><button type="button" class="btn btn-primary">追加</button></div>
         </div>
-        <div>
+        <div class="todo-container-list">
             <div>
                 <div class="todo-list-item"><button type="button" class="todo-fix-button btn btn-success">編集</button></div>
                 <div class="todo-list-item"><button type="button" class="todo-delete-button btn btn-danger">削除</button></div>
@@ -28,6 +28,7 @@
                 <div class="todo-list-item">Todo3</div>
             </div>
         </div>
+        <footer></footer>
         <script src="dist/main.js"></script>
     </body>
 </html>
