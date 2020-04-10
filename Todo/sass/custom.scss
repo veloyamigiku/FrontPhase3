@@ -1,13 +1,5 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
-.todo-input-item {
-    display: inline;
-}
-
-.todo-list-item {
-    display: inline;
-}
-
 /* TODO入力領域 */
 .todo-container-input {
     width: 800px;
@@ -15,11 +7,71 @@
     border: solid 1px gray;
     border-radius: 5px;
     box-shadow: 0 5px gray;
-    margin: 10px auto;
-    padding: 10px;
+    margin: 50px auto;
+    padding: 10px 20px;
 }
 
-/* TODOの入力項目 */
+/* TODO入力項目 */
+.todo-input-item {
+    display: inline;
+}
+
+/* TODOの入力項目(TODO) */
 .todo-input-content {
     width: 500px;
+}
+
+/* TODO一覧領域 */
+.todo-container-list {
+    width: 1000px;
+    margin: 50px auto;
+}
+
+/* TODO一覧の項目(ボタン) */
+.todo-list-button-hidden {
+    display: none;
+}
+
+/* TODO一覧の項目(編集ボタン) */
+.todo-list-button-fix {
+    @extend .btn;
+    @extend .btn-success;
+}
+
+.todo-list-button-fix-hidden {
+    @extend .todo-list-button-fix;
+    display: none;
+}
+
+/* TODO一覧の項目(保存ボタン) */
+.todo-list-button-save {
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+.todo-list-button-save-hidden {
+    @extend .todo-list-button-save;
+    display: none;
+}
+
+/* TODO一覧の項目(キャンセルボタン) */
+.todo-list-button-cancel {
+    @extend .btn;
+    @extend .btn-secondary;
+}
+
+.todo-list-button-cancel-hidden {
+    @extend .todo-list-button-cancel;
+    display: none;
+}
+
+/* TODO一覧の項目(削除ボタン) */
+.todo-list-button-delete {
+    @extend .btn;
+    @extend .btn-danger;
+}
+
+.todo-list-button-delete-hidden {
+    @extend .todo-list-button-delete;
+    display: none;
 }

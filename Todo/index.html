@@ -12,21 +12,47 @@
             <div class="todo-input-item"><button type="button" class="btn btn-primary">追加</button></div>
         </div>
         <div class="todo-container-list">
-            <div>
-                <div class="todo-list-item"><button type="button" class="todo-fix-button btn btn-success">編集</button></div>
-                <div class="todo-list-item"><button type="button" class="todo-delete-button btn btn-danger">削除</button></div>
-                <div class="todo-list-item">Todo1</div>
-            </div>
-            <div>
-                <div class="todo-list-item"><button type="button" class="todo-fix-button btn btn-success">編集</button></div>
-                <div class="todo-list-item"><button type="button" class="todo-delete-button btn btn-danger">削除</button></div>
-                <div class="todo-list-item">Todo2</div>
-            </div>
-            <div>
-                <div class="todo-list-item"><button type="button" class="todo-fix-button btn btn-success">編集</button></div>
-                <div class="todo-list-item"><button type="button" class="todo-delete-button btn btn-danger">削除</button></div>
-                <div class="todo-list-item">Todo3</div>
-            </div>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Todo</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="align-middle">1</th>
+                        <td class="align-middle">TODOを入力して、追加ボタンをクリックしてください。</td>
+                        <td>
+                            <button type="button" class="todo-list-button-fix">編集</button>
+                            <button type="button" class="todo-list-button-save-hidden">保存</button>
+                            <button type="button" class="todo-list-button-cancel-hidden">キャンセル</button>
+                            <button type="button" class="todo-list-button-delete">削除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="align-middle">2</th>
+                        <td class="align-middle">TODOを入力して、追加ボタンをクリックしてください。</td>
+                        <td>
+                            <button type="button" class="todo-list-button-fix">編集</button>
+                            <button type="button" class="todo-list-button-save-hidden">保存</button>
+                            <button type="button" class="todo-list-button-cancel-hidden">キャンセル</button>
+                            <button type="button" class="todo-list-button-delete">削除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="align-middle">3</th>
+                        <td class="align-middle">TODOを入力して、追加ボタンをクリックしてください。</td>
+                        <td>
+                            <button type="button" class="todo-list-button-fix">編集</button>
+                            <button type="button" class="todo-list-button-save-hidden">保存</button>
+                            <button type="button" class="todo-list-button-cancel-hidden">キャンセル</button>
+                            <button type="button" class="todo-list-button-delete">削除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <footer></footer>
         <script src="dist/main.js"></script>
