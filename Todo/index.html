@@ -8,8 +8,8 @@
     <body>
         <header></header>
         <div class="todo-container-input">
-            <div class="todo-input-item"><input type="text" class="todo-input-content" placeholder="TODOを入力して、追加ボタンをクリックしてください。"></div>
-            <div class="todo-input-item"><button type="button" class="btn btn-primary">追加</button></div>
+            <div class="todo-input-item"><input type="text" id="todo-input-content" placeholder="TODOを入力して、追加ボタンをクリックしてください。"></div>
+            <div class="todo-input-item"><button type="button" id="todo-button-add" class="btn btn-primary">追加</button></div>
         </div>
         <div class="todo-container-list">
             <table class="table table-striped table-bordered table-hover">
@@ -20,7 +20,7 @@
                         <th>Edit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="todo-list-tbody">
                     <tr>
                         <th class="align-middle">1</th>
                         <td class="align-middle">TODOを入力して、追加ボタンをクリックしてください。</td>
