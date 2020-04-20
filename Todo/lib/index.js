@@ -47,13 +47,46 @@ function addTodo() {
     const buttonDelete = document.createElement("button");
     buttonDelete.setAttribute("type", "button");
     buttonDelete.setAttribute("class", "todo-list-button-delete");
-    buttonDelete.setAttribute("data-toggle", "modal")
-    buttonDelete.setAttribute("data-target", "#delete-modal")
+    buttonDelete.setAttribute("data-toggle", "modal");
+    buttonDelete.setAttribute("data-target", "#delete-modal");
+    buttonDelete.setAttribute("data-todo-id", todo_id);
     buttonDelete.textContent = "削除";
-    buttonDelete.addEventListener('click', () => {
+
+    buttonFix.addEventListener("click", () => {
+        buttonFix.setAttribute("class", "todo-list-button-fix-hidden");
+        buttonSave.setAttribute("class", "todo-list-button-save");
+        buttonCancel.setAttribute("class", "todo-list-button-cancel");
+        buttonDelete.setAttribute("class", "todo-list-button-delete-hidden");
+
+        inputContent.removeAttribute("disabled");
+        inputContent.setAttribute("data-org-content", inputContent.value);
+    });
+
+    buttonSave.addEventListener("click", () => {
+        buttonFix.setAttribute("class", "todo-list-button-fix");
+        buttonSave.setAttribute("class", "todo-list-button-save-hidden");
+        buttonCancel.setAttribute("class", "todo-list-button-cancel-hidden");
+        buttonDelete.setAttribute("class", "todo-list-button-delete");
+
+        inputContent.setAttribute("disabled", "true");
+        inputContent.removeAttribute("data-org-content");
+    });
+
+    buttonCancel.addEventListener("click", () => {
+        buttonFix.setAttribute("class", "todo-list-button-fix");
+        buttonSave.setAttribute("class", "todo-list-button-save-hidden");
+        buttonCancel.setAttribute("class", "todo-list-button-cancel-hidden");
+        buttonDelete.setAttribute("class", "todo-list-button-delete");
+
+        inputContent.setAttribute("disabled", "true");
+        inputContent.value = inputContent.getAttribute("data-org-content");
+    });
+
+    buttonDelete.addEventListener('click', (event) => {
+        const tmpButtonDelete = event.target;
         const deleteCheckButton = document.getElementById("delete-check-button");
         if (deleteCheckButton) {
-            deleteCheckButton.setAttribute("data-todo-id", todo_id);
+            deleteCheckButton.setAttribute("data-todo-id", tmpButtonDelete.getAttribute("data-todo-id"));
         }
     });
     tdButtons.appendChild(buttonDelete);
@@ -83,6 +116,7 @@ window.addEventListener("load", () => {
         const deleteCheckButton = event.target;
         const todoID = deleteCheckButton.getAttribute("data-todo-id");
         deleteTodo(todoID);
+        deleteCheckButton.removeAttribute("data-todo-id");
     })
 
 });
