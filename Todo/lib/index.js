@@ -20,8 +20,13 @@ function addTodo() {
     tr.appendChild(th);
     const tdContent = document.createElement("td");
     tdContent.setAttribute("class", "align-middle");
-    tdContent.textContent = todoContent;
     tr.appendChild(tdContent);
+    const inputContent = document.createElement("input");
+    inputContent.setAttribute("type", "text");
+    inputContent.setAttribute("class", "form-control");
+    inputContent.setAttribute("disabled", "true");
+    inputContent.value = todoContent;
+    tdContent.appendChild(inputContent);
     const tdButtons = document.createElement("td");
     tr.appendChild(tdButtons);
     const buttonFix = document.createElement("button");
