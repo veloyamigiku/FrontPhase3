@@ -92,7 +92,8 @@ edit .eslintrc.json
 ===
 
 7)
-npm install --save-dev bootstrap gulp gulp-sass gulp-autoprefixer gulp-clean-css gulp-sourcemaps gulp-plumber gulp-watch
+npm install --save bootstrap jquery popper.js
+npm install --save-dev gulp gulp-sass gulp-autoprefixer gulp-clean-css gulp-sourcemaps gulp-plumber gulp-watch
 
 8)
 create gulpfile.js

@@ -21,6 +21,7 @@
                     </tr>
                 </thead>
                 <tbody id="todo-list-tbody">
+                    <!--
                     <tr>
                         <th class="align-middle">1</th>
                         <td class="align-middle">TODOを入力して、追加ボタンをクリックしてください。</td>
@@ -51,10 +52,29 @@
                             <button type="button" class="todo-list-button-delete">削除</button>
                         </td>
                     </tr>
+                    -->
                 </tbody>
             </table>
         </div>
         <footer></footer>
+        <!-- TODO削除モーダル -->
+        <div class="modal fade" id="delete-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">TODO削除確認</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label>TODOを削除しますか？</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                        <button type="button" id="delete-check-button" class="btn btn-danger" data-dismiss="modal">削除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="dist/main.js"></script>
     </body>
 </html>
